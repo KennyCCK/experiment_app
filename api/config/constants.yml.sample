@@ -1,0 +1,15 @@
+defaults: &defaults
+  sample:
+    title: <%= ENV["PLATFORM_TITLE"] %>
+
+development:
+  <<: *defaults
+
+test:
+  <<: *defaults
+
+staging:
+  <<: *defaults
+
+production:
+  <<: *defaults
