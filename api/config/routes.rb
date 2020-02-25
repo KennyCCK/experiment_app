@@ -1,10 +1,19 @@
 Rails.application.routes.draw do
+
   scope module: 'api' do
 
     namespace :v1 do
-      get 'movies/index'
-      get 'movies/show'
-
+      resources :movies, controller: :movies, param: :id do
+        member do
+          post :purchase, to: 'movies#purchase'
+        end
+      end
+      resources :seasons, controller: :seasons, param: :id do
+        member do
+          post :purchase, to: 'seasons#purchase'
+        end
+      end
+      get :browse, to: 'browse#index'
     end
 
   end
