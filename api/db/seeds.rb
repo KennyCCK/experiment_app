@@ -48,6 +48,16 @@ uhd = Quality.find_by(name: '4K')
         season.season_title = "This is season #{s}"
         season.save
 
+        # Add a "Price"
+        price = Price.new
+        price.price_usd = 3.99
+        price.price_type = 'rent'
+        price.valid_days = 60
+        price.quality_id = hd.id
+        price.movie_id = movie.id
+        price.season_id = season.id
+        price.save
+
         # Add "Episodes"
         (1..10).each do |e|
           episode = Episode.new
@@ -74,6 +84,16 @@ uhd = Quality.find_by(name: '4K')
       end
 
     else
+
+      # Add a "Price"
+      price = Price.new
+      price.price_usd = 4.99
+      price.price_type = 'rent'
+      price.valid_days = 2
+      price.quality_id = uhd.id
+      price.movie_id = movie.id
+      price.season_id = nil
+      price.save
 
       # Register "Video" entry for standard movie
       video = Video.new
