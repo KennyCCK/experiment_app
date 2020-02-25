@@ -1,5 +1,5 @@
 class Price < ApplicationRecord
   belongs_to :quality
   belongs_to :movie
-  belongs_to :season
+  belongs_to :season, required: false
 end
