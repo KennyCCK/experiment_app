@@ -23,6 +23,7 @@
 config/constants.yml
 
 *.rbc
+nohup.out
 capybara-*.html
 .rspec
 /log
