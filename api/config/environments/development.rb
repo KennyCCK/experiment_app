@@ -43,10 +43,10 @@ Rails.application.configure do
   config.active_record.migration_error = :page_load
 
   if ENV["RAILS_LOG_TO_STDOUT"].present?
-    logger           = ActiveSupport::Logger.new(STDOUT)
-    logger.formatter = config.log_formatter
-    config.logger    = ActiveSupport::TaggedLogging.new(logger)
+    config.logger = ActiveSupport::TaggedLogging.new(Logger.new(STDOUT))
   end
+
+  config.logger = Logger.new(STDOUT)
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
