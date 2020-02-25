@@ -3,13 +3,17 @@ module Api::V1
     # skip_before_action :authenticate_user
     before_action :setup_user
 
-    # Devise is loaded but temporary not using it,
+    # Devise is preferred but temporary not using it,
     # instead requests are authenticated with user_id parameter
     def setup_user
       if params[:user_id]
-        sign_in User.find_by(id: params[:user_id])
-      else
-        render json: {message: 'No user ID provided.'},status: :forbidden
+        @@current_user = User.find_by(id: params[:user_id])
+      end
+    end
+
+    def verify_user
+      unless @@current_user
+        render json: {message: 'Not logged in!'}, status: :unauthorized
         return
       end
     end
