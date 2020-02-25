@@ -1,5 +1,5 @@
 module Api::V1
-  class BrowseController < ApplicationController
+  class BrowseController < ApiController
     # GET localhost:3002/v1/browse
     def index
       @movies = parse_request(params[:filter_name])

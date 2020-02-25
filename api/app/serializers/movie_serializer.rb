@@ -1,5 +1,5 @@
 class MovieSerializer < ActiveModel::Serializer
-  attributes :movie_name, :movie_desc
+  attributes :id, :movie_name, :movie_desc
 
   belongs_to :genre
   has_many :seasons

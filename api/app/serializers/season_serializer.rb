@@ -1,5 +1,5 @@
 class SeasonSerializer < ActiveModel::Serializer
-  attributes :season_num, :season_title, :season_synopsis, :episodes
+  attributes :id, :season_num, :season_title, :season_synopsis, :episodes
 
   belongs_to :movie
 
