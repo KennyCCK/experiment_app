@@ -1,0 +1,39 @@
+source 'https://rubygems.org'
+
+gem 'active_model_serializers', '0.10.6'
+gem 'awesome_nested_set', '3.1.4'
+gem 'bootsnap', '1.1.1'
+gem 'knock', '2.1.1'
+gem 'mysql2', '0.5.2'
+gem 'falcon', '0.31.0'
+gem 'rack-cors', '1.0.5'
+gem 'rails', '5.2.2.1'
+gem 'railties', '5.2.2.1'
+gem 'rake', '12.3.2'
+gem 'redis', '3.3.3'
+gem 'redis-namespace', '1.5.3'
+gem 'redis-rails', '5.0.2'
+gem 'faktory_worker_ruby', '0.6.1'
+gem 'settingslogic', '2.0.9'
+
+group :development, :test do
+  gem 'byebug', '~> 9.0'
+  gem 'dotenv-rails', '2.5.0'
+  gem 'factory_girl_rails', '4.8.0'
+  gem 'faker', '1.8.2'
+  gem 'pry-byebug', '3.4.2'
+  gem 'pry-doc', '0.13.5'
+  gem 'pry-rails', '0.3.8'
+  gem 'rspec-rails', '3.6.0'
+end
+
+group :development do
+  gem 'bullet', '5.9.0'
+  gem 'listen', '3.1.5'
+  gem 'rubocop', '0.54.0', require: false
+  gem 'spring', '2.0.2'
+  gem 'spring-watcher-listen', '2.0.1'
+end
+
+# Windows does not include zoneinfo files, so bundle the tzinfo-data gem
+gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]

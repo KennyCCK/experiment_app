@@ -1,0 +1,32 @@
+default: &default
+  adapter: mysql2
+  charset: utf8mb4
+  encoding: utf8mb4
+  collation: utf8mb4_unicode_ci
+  timeout: 5000
+  wait_timeout: 180
+  reconnect: true
+
+development:
+  <<: *default
+  database: api
+  host: localhost
+  username: dbuser
+  pool: 10
+  password: zTmassxfrBcnupN6vBtJqWokzhkyyr7c
+
+staging:
+  <<: *default
+  database: api
+  host: db.local
+  username: sg
+  pool: 10
+  password: udsbpnEWqu8QHmjwcVhD
+
+production:
+  <<: *default
+  database: api
+  host: db.local
+  username: dbuser
+  pool: 10
+  password: xitBLrjLcoLfxsrkFJtvn2rTqEPdMy

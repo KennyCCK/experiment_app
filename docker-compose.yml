@@ -1,0 +1,29 @@
+version: '2'
+services:
+
+  api:
+    build: api
+    image: sample
+    ports:
+      - '3002:3000'
+    volumes:
+      - ./api/:/usr/src
+    tty: true
+    stdin_open: true
+
+  rdb:
+    build: rdb
+    environment:
+      MYSQL_ROOT_PASSWORD: HMAbRPjn9rCtvrbm2eWzRjHhQYGvPe
+      MYSQL_USER: dbuser
+      MYSQL_PASSWORD: zTmassxfrBcnupN6vBtJqWokzhkyyr7c
+      MYSQL_DATABASE: api
+      ENCRYPTION_PASSWORD: yDpDvKNBTQFSDYmLXYAuzrFehHntqNTdSmatHkLbrhjHcmcJhZ
+    ports:
+      - '3306:3306'
+
+  job:
+    image: contribsys/faktory:0.9.6
+    ports:
+      - '7419:7419'
+      - '7420:7420'
