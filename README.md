@@ -28,6 +28,10 @@ Example curl when purchasing content:
 curl -H 'Content-Type:application/json' -X POST localhost:3002/v1/seasons/14/purchase -d '{"user_id": "1", "quality": "sd"}'
 ```
 
+## Rspec test
+
+Run `$ docker exec -it <container name> bash` to get into the container bash then enter `bundle exec rspec` to run rspec tests.
+
 ## Tips
 
 - You may use docker tools such as `docker logs <container name>` to view logs.
