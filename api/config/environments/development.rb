@@ -61,6 +61,5 @@ Rails.application.configure do
     Bullet.bullet_logger = true
     Bullet.console = true
     Bullet.rails_logger = true
-    #Bullet.slack = { webhook_url: 'https://hooks.slack.com/services/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', channel: '#jector2-memo', username: 'Bullet' }
   end
 end

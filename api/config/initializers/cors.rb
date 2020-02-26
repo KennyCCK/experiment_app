@@ -7,7 +7,7 @@
 
 Rails.application.config.middleware.insert_before 0, Rack::Cors do
   allow do
-    origins 'dev-jector.com', 'jector2.com', 'jector.com', 'agehatest-jector.com', 'http://setaria.cloud', 'http://staging.setaria.cloud', 'http://dev.setaria.cloud', 'http://neko.setaria.cloud', 'https://setaria.cloud', 'https://neko.setaria.cloud', 'https://staging.setaria.cloud'
+    origins 'dev-local.com'
     resource '*', headers: :any, expose: ['Retry-After'], methods: [:get, :post, :put, :options, :patch, :delete]
   end
 end
