@@ -14,6 +14,7 @@ Rails.application.routes.draw do
         end
       end
       get :browse, to: 'browse#index'
+      get :library, to: 'user_libraries#index'
     end
 
   end
