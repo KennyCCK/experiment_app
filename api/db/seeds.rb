@@ -30,6 +30,7 @@ end
 end
 
 # Create sample Movies
+sd = Quality.find_by(name: 'SD')
 hd = Quality.find_by(name: 'HD')
 uhd = Quality.find_by(name: '4K')
 ['Terminator', '300', 'Sword Art Online', 'Iron Man', 'Avengers: End Game'].each do |m|
@@ -67,12 +68,25 @@ uhd = Quality.find_by(name: '4K')
           episode.episode_plot = "plot abcdefghijk"
           episode.save
 
-          # Register "Video" entry
+          # Register "Video" HD entry
           video = Video.new
           video.filename = 'file'
           video.ext = 'mp4'
           video.size = 10000
           video.quality_id = hd.id
+          video.duration_mins = 23.5
+          video.storage_path = 'path/to/file'
+          video.movie_id = movie.id
+          video.season_id = season.id
+          video.episode_id = episode.id
+          video.save
+
+          # Register "Video" SD entry
+          video = Video.new
+          video.filename = 'file'
+          video.ext = 'mp4'
+          video.size = 10000
+          video.quality_id = sd.id
           video.duration_mins = 23.5
           video.storage_path = 'path/to/file'
           video.movie_id = movie.id
