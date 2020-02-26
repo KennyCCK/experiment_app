@@ -72,9 +72,9 @@ module Api::V1
 
       def parse_request(movie_id)
         if movie_id
-          seasons = Season.where(movie_id: movie_id).order(created_at: :desc)
+          seasons = Season.where(movie_id: movie_id).order(created_at: :desc).includes(:movie)
         else
-          seasons = Season.order(created_at: :desc)
+          seasons = Season.order(created_at: :desc).includes(:movie)
         end
         seasons
       end

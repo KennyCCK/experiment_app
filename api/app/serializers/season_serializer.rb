@@ -3,11 +3,18 @@ class SeasonSerializer < ActiveModel::Serializer
 
   belongs_to :movie
 
+  # ActiveModelSerializer defaults to only one-level serialization, therefore manual handling here
   def episodes
-    Episode.select(:episode_num, :episode_title, :episode_plot, :created_at)
-      .where(season_id: object.id)
-      .order(episode_num: :asc)
-      .as_json(except: :id)
+    results = []
+    e = Episode.where(season_id: object.id).order(episode_num: :asc).includes(:season)
+    e.each do |episode|
+      results << {
+        episode_num: episode.episode_num,
+        episode_title: episode.episode_title,
+        qualities: episode.find_quality
+      }
+    end
+    results
   end
 
   def created_at

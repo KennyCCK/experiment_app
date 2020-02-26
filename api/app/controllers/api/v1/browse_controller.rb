@@ -9,9 +9,9 @@ module Api::V1
     private
       def parse_request(name)
         if name
-          movies = Movie.where(movie_name: name).order(created_at: :desc)
+          movies = Movie.where(movie_name: name).order(created_at: :desc).includes(:seasons, :genre)
         else
-          movies = Movie.order(created_at: :desc)
+          movies = Movie.order(created_at: :desc).includes(:seasons, :genre)
         end
         movies
       end
