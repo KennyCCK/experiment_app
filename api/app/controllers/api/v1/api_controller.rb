@@ -12,7 +12,7 @@ module Api::V1
     end
 
     def verify_user
-      unless @@current_user
+      unless @@current_user || defined?(@@current_user)
         render json: {message: 'Not logged in!'}, status: :unauthorized
         return
       end
