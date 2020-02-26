@@ -49,7 +49,17 @@ uhd = Quality.find_by(name: '4K')
         season.season_title = "This is season #{s}"
         season.save
 
-        # Add a "Price"
+        # Add a SD "Price"
+        price = Price.new
+        price.price_usd = 1.99
+        price.price_type = 'rent'
+        price.valid_days = 60
+        price.quality_id = sd.id
+        price.movie_id = movie.id
+        price.season_id = season.id
+        price.save
+
+        # Add a HD "Price"
         price = Price.new
         price.price_usd = 3.99
         price.price_type = 'rent'
@@ -68,12 +78,12 @@ uhd = Quality.find_by(name: '4K')
           episode.episode_plot = "plot abcdefghijk"
           episode.save
 
-          # Register "Video" HD entry
+          # Register "Video" SD entry
           video = Video.new
           video.filename = 'file'
           video.ext = 'mp4'
           video.size = 10000
-          video.quality_id = hd.id
+          video.quality_id = sd.id
           video.duration_mins = 23.5
           video.storage_path = 'path/to/file'
           video.movie_id = movie.id
@@ -81,12 +91,12 @@ uhd = Quality.find_by(name: '4K')
           video.episode_id = episode.id
           video.save
 
-          # Register "Video" SD entry
+          # Register "Video" HD entry
           video = Video.new
           video.filename = 'file'
           video.ext = 'mp4'
           video.size = 10000
-          video.quality_id = sd.id
+          video.quality_id = hd.id
           video.duration_mins = 23.5
           video.storage_path = 'path/to/file'
           video.movie_id = movie.id
