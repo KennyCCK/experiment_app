@@ -6,7 +6,7 @@ class SeasonSerializer < ActiveModel::Serializer
   # ActiveModelSerializer defaults to only one-level serialization, therefore manual handling here
   def episodes
     results = []
-    e = Episode.where(season_id: object.id).order(episode_num: :asc).includes(:season)
+    e = Episode.where(season_id: object.id).order(episode_num: :asc)
     e.each do |episode|
       results << {
         episode_num: episode.episode_num,
