@@ -1,8 +1,7 @@
 FactoryGirl.define do
   factory :episode do
-    season nil
     episode_num 1
-    episode_title "MyString"
-    episode_plot "MyText"
+    episode_title Faker::Movie.name
+    episode_plot 'no plot'
   end
 end

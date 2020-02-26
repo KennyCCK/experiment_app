@@ -1,5 +1,5 @@
 FactoryGirl.define do
   factory :quality do
-    name "MyString"
+    name Faker::Color.color_name
   end
 end

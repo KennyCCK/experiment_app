@@ -15,6 +15,10 @@ development:
   pool: 10
   password: zTmassxfrBcnupN6vBtJqWokzhkyyr7c
 
+test:
+  <<: *default
+  database: api
+
 staging:
   <<: *default
   database: api

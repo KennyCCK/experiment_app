@@ -1,7 +1,6 @@
 FactoryGirl.define do
   factory :movie do
-    movie_name "MyString"
-    movie_desc "MyText"
-    genre nil
+    movie_name Faker::Movie.name
+    movie_desc Faker::Movie.quote
   end
 end
